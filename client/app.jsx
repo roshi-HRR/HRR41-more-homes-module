@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from "jquery";
+import $ from 'jquery';
+import MainCarousel from './components/MainCarousel.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class App extends React.Component {
       <div>
         <h1>More homes you may like</h1>
         {/* Carousel Component */}
+        <MainCarousel />
       </div>
     )
   };
