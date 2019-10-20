@@ -1,0 +1,110 @@
+.home-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  height: 220px;
+  margin: 0 auto;
+}
+
+.button-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin: auto 0;
+  float: left;
+  vertical-align: middle;
+  z-index: 10;
+}
+
+.home-carousel {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  left: 0;
+  transition: all 1s ease;
+
+}
+
+.slide {
+  min-width: 300px;
+  height: 220px;
+  margin: 0px;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: #DCDCDC;
+
+  /* temp style */
+  /* background: rgb(190, 10, 70); */
+}
+
+ img { /* use className so it doesn't conflict with anyone else  */
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+
+}
+
+.indicator-wrapper {
+  position: relative;
+   width: 119px;
+  height: 20px;
+  border: 3px solid darkolivegreen;
+  margin: 0 auto;
+  overflow: hidden;
+  z-index: 9;
+  bottom: 25px;
+}
+
+.indicator-dots {
+  position: absolute;
+  display: flex;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  transition: all 1s ease;
+  list-style: none;
+}
+
+.indicator-dot {
+ display: inline-block;
+ vertical-align: top;
+ width: 7px;
+ height: 7px;
+ border-radius: 50%;
+ margin: 0 5px;
+ background-color: aquamarine;
+}
+
+.curr-dot {
+  width: 9px;
+  height: 9px;
+  margin: 0 4px;
+  border-radius: 50%;
+  background-color: tomato;
+}
+
+/*
+Math
+7 to display
+5+7+5 = 17px wide
+17 * 7 = 119
+
+-small dots-
+margin 6
+width 5
+
+-big dot-
+margin 4
+width 9
+
+offsetstart
+68
+*/
