@@ -13,13 +13,24 @@
     "seed": "node database/seed.js"
   },
   "dependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-regular-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "babel": "^6.23.0",
     "babel-loader": "^8.0.6",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "install": "^0.13.0",
+    "jquery": "^3.4.1",
     "mongodb": "^3.3.2",
     "mongoose": "^5.7.4",
     "nodemon": "^1.19.3",
+    "npm": "^6.12.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "webpack": "^4.41.0",
@@ -27,6 +38,8 @@
     "webpack-dev-server": "^3.8.2"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "css-loader": "^3.2.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "style-loader": "^1.0.0"
   }
 }
