@@ -6,7 +6,7 @@
   margin: 0 auto;
 }
 
-.button-wrapper {
+.home-button-wrapper {
   width: 100%;
   height: 100%;
   display: flex;
@@ -17,6 +17,7 @@
   float: left;
   vertical-align: middle;
   z-index: 10;
+  opacity: 0;
 }
 
 .home-carousel {
@@ -51,11 +52,31 @@
 
 }
 
+.home-carousel-button-prev {
+  /* border: 2px solid peru; */
+  /* display: none; */
+  padding: 50% 20px;
+  cursor: pointer;
+  font-size: 25px;
+  color: white;
+  background-image: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,.3));
+}
+
+.home-carousel-button-next {
+  /* border: 2px solid peru; */
+  /* display: none; */
+  padding: 50% 20px;
+  cursor: pointer;
+  font-size: 25px;
+  color: white;
+  background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,.3));
+}
+
 .indicator-wrapper {
   position: relative;
    width: 119px;
   height: 20px;
-  border: 3px solid darkolivegreen;
+  /* border: 3px solid darkolivegreen; */
   margin: 0 auto;
   overflow: hidden;
   z-index: 9;
@@ -79,16 +100,24 @@
  width: 7px;
  height: 7px;
  border-radius: 50%;
- margin: 0 5px;
- background-color: aquamarine;
+ margin: auto 5px;
+ background-color: #E0E0E0;
 }
 
 .curr-dot {
   width: 9px;
   height: 9px;
-  margin: 0 4px;
+  margin: auto 4px;
   border-radius: 50%;
-  background-color: tomato;
+  background-color: white;
+}
+
+.small-dots {
+  width: 5px;
+  height: 5px;
+  margin: auto 6px;
+  border-radius: 50%;
+  background-color: #E0E0E0;
 }
 
 /*
@@ -108,3 +137,28 @@ width 9
 offsetstart
 68
 */
+
+.favorite {
+  position: absolute;
+  float: right;
+  top: 8px;
+  right: 8px;
+  font-size: 24px;
+  z-index: 11;
+  color: white;
+}
+
+/* .login-modal {
+  width: 568px;
+  height: 665px;
+  padding: 32px;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 300ms ease-in-out;
+  z-index: 1011;
+
+  border: 5px solid purple;
+} */
