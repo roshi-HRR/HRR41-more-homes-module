@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import MainCarousel from './components/MainCarousel.jsx'
+import './styles/style.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {homes: []};
+    this.state = {
+      homes: null
+    };
 
     this.getHomes = this.getHomes.bind(this);
   }
@@ -35,11 +38,18 @@ class App extends React.Component {
   }
 
   render() {
+    const { homes } = this.state;
+
+    if (homes === null) {
+      return null;
+    }
     return(
-      <div>
-        <h1>More homes you may like</h1>
+      <div className="main-wrapper">
+        <div className="module-title">
+        <div >More homes you may like</div>
+        </div>
         {/* Carousel Component */}
-        <MainCarousel />
+        <MainCarousel homes={this.state.homes} />
       </div>
     )
   };
