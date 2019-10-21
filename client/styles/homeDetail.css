@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
+
+.detail-first-line {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  margin-top: 12px;
+  color: #585858;
+}
+
+.detail-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 7px;
+  color: #282828;
+}
+
+.detail-cost {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 7px;
+  color: #585858;
+}
+
+.detail-rating {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+
+  color: #282828;
+}
+
+.detail-reviews {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+
+  color: #585858;
+}
+
+.detail-star {
+  color: #00A699;
+  font-size: 12px;
+
+}
+
+.detail-last-line {
+  margin-top: 5px;
+}
+
+
+/* font-family: 'Montserrat', sans-serif; */
