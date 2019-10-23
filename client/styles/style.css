@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
+
+.main-wrapper {
+  width: 100%;
+
+}
+.module-title {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 24px 0;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+
+  color: #282828;
+}
