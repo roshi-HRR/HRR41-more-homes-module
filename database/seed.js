@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Home = require('./index');
+const Schema = require('./index');
 mongoose.Promise = global.Promise;
 const faker = require('faker');
 const homesImages = require('./homes');
@@ -12,64 +12,92 @@ mongoose.connect('mongodb://localhost:27017/homes', {useUnifiedTopology: true, u
       console.error('Database connection error');
     }) ;
 
+
 //Random generators
+
 //returns random true or false
-var favorite = function() {
-  var num = Math.floor(Math.random() * Math.floor(2))
-  if (num === 1) {
-    return true;
-  } else if (num === 0) {
-    return false;
-  }
-}
+const isFavorite = () => Math.random() < 0.5;
 
 //returns random number between 0 and 5, 2 decimal places
-var rating = function() {
+const rating = function() {
   var rateMin = 3;
   var rateMax = 5;
   return (Math.random() * (rateMax - rateMin) + rateMin).toFixed(2);
 }
 
 //returns random number between 80 and 150
-var cost =function() {
+const cost = function() {
   var min = 80;
   var max = 150;
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-//import an array of arrays for images
+var currIndex = 0;
+var getHomeImg = function() {
 
-var homes = []; //store new instances of home
+  var currImgSet = homesImages.allHomes[currIndex];
+  if (currIndex === homesImages.allHomes.length - 1) {
+    currIndex = 0;
+  } else {
+    currIndex += 1;
+  }
+  return currImgSet;
+}
 
-for (var i = 0; i < 11; i++) {
-  var home = new Home({
-      id : i,
+var makeHomesSet = () => {
+  var homesArr = [];
+
+  for (var i = 0; i < 10; i++) {
+    var eachHome = new Schema.EachHome({
+      id: i,
       title: faker.lorem.words(),
       location: faker.address.city(),
-      photos: homesImages.allHomes[i],
+      photos: getHomeImg(),
       cost: cost(),
       rating: rating(),
       reviews: faker.random.number(),
       type: faker.lorem.word(),
-      favorite: favorite()
+      favorite: isFavorite()
     });
 
-  homes.push(home);
+    homesArr.push(eachHome);
+  }
+  return homesArr;
 }
 
-//clear database everytime seeding script is run.
-Home.deleteMany({}, function (err) {
+// const makeHomesSet = () => {
+//   var homesArr = [];
+//   for (var i = 0; i < 10; i++) {
+//     var oneHome = new HomeObjMaker;
+//     homesArr.push(oneHome);
+//   }
+//   return homesArr;
+// }
+
+
+var homesForDB = [];
+
+for (var i = 0; i < 101; i++) {
+  var home = new Schema.HomeSet({
+      home_id : i,
+      homes : makeHomesSet()
+    });
+
+  homesForDB.push(home);
+}
+
+
+Schema.HomeSet.deleteMany({}, function (err) {
   if (err) {
     console.log(err);
   }
     console.log('clean db');
 });
 
-//save homes to DB
-for (var i = 0; i < homes.length; i++) {
-  homes[i].save(function(err, result) {
-    if (i === 11) {
-      console.log('data saved');
+for (var i = 0; i < homesForDB.length; i++) {
+  homesForDB[i].save(function(err, result) {
+    if (i === homesForDB.length) {
+      // console.log('data saved');
       mongoose.disconnect();
     }
   })
