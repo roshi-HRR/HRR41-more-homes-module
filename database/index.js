@@ -8,7 +8,8 @@ db.once('open', function() {
   // we're connected!
 });
 
-const schema = new Schema({
+//each home
+const homeSchema = new Schema({
   id: Number,
   title: String,
   location: String,
@@ -20,5 +21,19 @@ const schema = new Schema({
   favorite: Boolean
 });
 
-module.exports = mongoose.model('Home', schema);
+//home set
+const homeSetSchema = new Schema({
+  home_id: Number,
+  homes: [homeSchema]
+});
+
+
+var EachHome = mongoose.model('EachHome', homeSchema);
+
+var HomeSet =  mongoose.model('HomeSet', homeSetSchema);
+
+module.exports = {
+  EachHome: EachHome,
+  HomeSet: HomeSet
+};
 
