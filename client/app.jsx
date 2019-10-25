@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
+import axios from 'axios';
 import MainCarousel from './components/MainCarousel.jsx'
 import './styles/style.css';
 
@@ -11,30 +11,25 @@ class App extends React.Component {
       homes: null
     };
 
-    this.getHomes = this.getHomes.bind(this);
   }
 
-  //ajax get request
-  getHomes() {
-    var saveHomes = function(data) {
-      this.setState({homes: data});
-    }.bind(this);
 
-    $.ajax({
-      url: '/homes',
-      type: 'GET',
-      success: function(data) {
-        console.log('data----> ', data);
-        saveHomes(data);
-      },
-      error: function(err) {
-        console.log('err-----> ', err);
-      }
-    });
-  };
 
   componentDidMount(){
-    this.getHomes();
+    const homeId = new URL(window.location.href).searchParams.get('house_id');
+
+    axios.get('/homes', {
+      params: {
+        'id': homeId
+      }
+    })
+    .then((response) => {
+      this.setState({homes: response.data[0].homes});
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
   }
 
   render() {
