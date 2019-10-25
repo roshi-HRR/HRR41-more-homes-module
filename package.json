@@ -10,7 +10,9 @@
   "scripts": {
     "start": "nodemon node server/index.js",
     "build": "webpack -d --watch",
-    "seed": "node database/seed.js"
+    "seed": "node database/seed.js",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@babel/core": "^7.6.4",
@@ -20,6 +22,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
+    "axios": "^0.19.0",
     "babel": "^6.23.0",
     "babel-loader": "^8.0.6",
     "body-parser": "^1.19.0",
@@ -38,8 +41,21 @@
     "webpack-dev-server": "^3.8.2"
   },
   "devDependencies": {
+    "babel-jest": "^24.9.0",
     "css-loader": "^3.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^24.9.0",
     "style-loader": "^1.0.0"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./tests/setupTests.js"
+    ]
   }
 }

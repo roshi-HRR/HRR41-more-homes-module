@@ -31,7 +31,11 @@ class HomeCarousel extends React.Component {
       dotsWidth: 17, //I know, hardcoded, need to find a fix
       dotsMaxX: null,
       allDots: null,
-      currDot: 0
+      currDot: 0,
+      //modal
+      modal: null,
+      btn: null,
+      modalClose: null
 
     }
   // home
@@ -44,13 +48,16 @@ class HomeCarousel extends React.Component {
   this.nextClick = this.nextClick.bind(this);
   this.prevClick = this.prevClick.bind(this);
 
-
+  //modal binding
+  // this.faveButtonClick = this.faveButtonClick.bind(this);
+  // this.modalCloseClick = this.modalCloseClick.bind(this);
+  // this.shadowClick = this.shadowClick.bind(this);
   }
 
   //for photos
   moveSlides(moveAmount) {
     this.state.homeCarousel.style.transform = 'translateX(-' + moveAmount + 'px)';
-    console.log(this.state.slidesWidth);
+    // console.log(this.state.slidesWidth);
   };
 
   // for dots
@@ -141,6 +148,21 @@ class HomeCarousel extends React.Component {
     this.state.indicatorDots.children[6].classList.add('small-dots');
   }
 
+  // faveButtonClick(){
+  //   this.state.modal.style.display = "block";
+
+  // };
+
+  // modalCloseClick() {
+  //   this.state.modal.style.display = "none";
+  // };
+
+  // shadowClick(event) {
+  //   if (event.target == modal) {
+  //     this.state.modal.style.display = "none";
+  //   }
+  // };
+
 
 
   componentDidMount() {
@@ -153,7 +175,10 @@ class HomeCarousel extends React.Component {
 
       indicatorDots: document.querySelector('.indicator-dots'+this.props.id),
       dotsMaxX: this.state.dotsWidth * (this.state.dotsTotal - 7),
-
+      //modal
+      modal: document.querySelector(".modal-shadow"),
+      btn: document.getElementById("modal-btn"),
+      modalClose: document.getElementsByClassName("close-modal")[0]
     });
 
     setTimeout(() => {this.setupDots()}, 0);
@@ -163,6 +188,26 @@ class HomeCarousel extends React.Component {
       }, function(){
       $(this).css("opacity", "0");
     });
+
+//MODAL
+// var modal = document.getElementById("login-modal");
+// var btn = document.getElementById("modal-btn");
+// var modalClose = document.getElementsByClassName("close-modal")[0];
+
+// const faveButtonClick() => {
+//   modal.style.display = "block";
+//   console.log('clicked');
+// };
+
+// const modalCloseClick() => {
+//   modal.style.display = "none";
+// };
+
+// const shadowClick (event) => {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// };
   }
 
 
@@ -175,7 +220,7 @@ class HomeCarousel extends React.Component {
             return(
               <li className="slide" key={i} >
                 <img src={photo}
-                key={i} />
+                key={i} className="homes-img" />
               </li>
             )
           })
@@ -200,11 +245,16 @@ class HomeCarousel extends React.Component {
             )}
           </ul>
           </div>
-          <div className="favorite">
+          <div id="modal-btn" className="favorite" onClick={this.faveButtonClick}>
             <FontAwesomeIcon icon={faHeartRegular} />
           </div>
 
-          {/* <div className="login-modal modal-shadow"></div> */}
+          <div id="login-modal" className="modal-shadow" onClick={this.shadowClick}>
+            <div className="modal-contents">
+              <span className="close-modal" onClick={this.modalCloseClick}>&times;</span>
+              <div>SOMETHING HELLO? </div>
+            </div>
+          </div>
       </div>
     )
   }

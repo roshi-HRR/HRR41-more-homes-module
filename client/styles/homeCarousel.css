@@ -45,7 +45,7 @@
   /* background: rgb(190, 10, 70); */
 }
 
- img { /* use className so it doesn't conflict with anyone else  */
+ .homes-img { /* use className so it doesn't conflict with anyone else  */
   height: 100%;
   display: block;
   margin: 0 auto;
@@ -148,17 +148,44 @@ offsetstart
   color: white;
 }
 
-/* .login-modal {
-  width: 568px;
-  height: 665px;
-  padding: 32px;
-  background-color: white;
+.modal-shadow {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  /* padding-top: 100px; Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /*Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-contents {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: all 300ms ease-in-out;
-  z-index: 1011;
+}
 
-  border: 5px solid purple;
-} */
+/* The Close Button */
+.close-modal {
+  color: #aaaaaa;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
