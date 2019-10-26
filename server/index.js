@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser= require('body-parser');
 const app = express();
-const port = 1022;
+const port = 3022;
 const Home = require('../database/index').HomeSet;
 const mongoose = require('mongoose');
 
